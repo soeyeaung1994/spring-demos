@@ -29,5 +29,11 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+### Mac OS related files ###
+*.DS_Store
+
+### Maven related files ###
+*.mvn
+
 ### VS Code ###
 .vscode/
