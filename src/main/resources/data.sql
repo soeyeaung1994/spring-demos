@@ -1,0 +1,5 @@
+INSERT INTO DOCUMENT_INFO (ID, DOC_NAME, DOC_TYPE, DOC_STATUS) VALUES (1, 'Passport', 'Identification Document', 'SUBMITTED');
+INSERT INTO DOCUMENT_INFO (ID, DOC_NAME, DOC_TYPE, DOC_STATUS) VALUES (2, 'Phone Bill', 'Residential Address Document', 'PENDING');
+INSERT INTO DOCUMENT_INFO (ID, DOC_NAME, DOC_TYPE, DOC_STATUS) VALUES (3, 'IRAS Notice of Assessment', 'Tax Declaration Document', 'PENDING');
+INSERT INTO DOCUMENT_INFO (ID, DOC_NAME, DOC_TYPE, DOC_STATUS) VALUES (4, 'Birth Certificate', 'Identification Document', 'SUBMITTED');
+INSERT INTO DOCUMENT_INFO (ID, DOC_NAME, DOC_TYPE, DOC_STATUS) VALUES (5, 'Social Security', 'Insurance Document', 'CANCELLED');
