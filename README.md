@@ -53,3 +53,8 @@
 - **@AfterReturning** - Do something **ONLY when a method executes successfully**
 - **@AfterThrowing** - Do something **ONLY when a method throws an exception**
 - **@Around** - Do something before and after a method execution. Do something **AROUND** a method execution.
+
+### References:
+- Aspect Oriented Programming with Spring: https://docs.spring.io/spring-framework/reference/core/aop.html 
+- AOP Concepts: https://docs.spring.io/spring-framework/reference/core/aop/introduction-defn.html
+- [NEW] Master Spring Boot 3 & Spring Framework 6 with Java (Udemy Course): https://www.udemy.com/course/spring-boot-and-spring-framework-tutorial-for-beginners/
