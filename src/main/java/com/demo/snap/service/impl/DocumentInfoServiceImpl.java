@@ -6,11 +6,13 @@ package com.demo.snap.service.impl;
  * @Time: 1:43 am
  */
 
-import com.demo.snap.entity.DocumentInfo;
-import com.demo.snap.record.DocumentInfoRecord;
+import com.demo.snap.model.entity.DocumentInfo;
+import com.demo.snap.model.record.DocumentInfoRecord;
+import com.demo.snap.model.request.DocumentInfoRequest;
 import com.demo.snap.repository.DocumentInfoRepository;
 import com.demo.snap.service.DocumentInfoService;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,13 +41,6 @@ public class DocumentInfoServiceImpl implements DocumentInfoService {
     }
 
     @Override
-    public List<DocumentInfoRecord> getDocumentInfosByDocType(String docType) {
-        return documentInfoRepository.findByDocType(docType).stream().map(documentInfo -> {
-            return new DocumentInfoRecord(documentInfo.getId(), documentInfo.getDocName(), documentInfo.getDocType(), documentInfo.getDocStatus());
-        }).collect(Collectors.toList());
-    }
-
-    @Override
     public List<DocumentInfoRecord> getDocumentInfosByDocStatus(String docStatus) {
         return documentInfoRepository.findByDocStatus(docStatus).stream().map(documentInfo -> {
             return new DocumentInfoRecord(documentInfo.getId(), documentInfo.getDocName(), documentInfo.getDocType(), documentInfo.getDocStatus());
@@ -56,6 +51,13 @@ public class DocumentInfoServiceImpl implements DocumentInfoService {
     public DocumentInfoRecord getDocumentInfoById(Long id) {
         DocumentInfo documentInfo = documentInfoRepository.findById(id).get();
         return new DocumentInfoRecord(documentInfo.getId(), documentInfo.getDocName(), documentInfo.getDocType(), documentInfo.getDocStatus());
+    }
+
+    @Override
+    public List<DocumentInfoRecord> saveDocumentInfos(List<DocumentInfoRequest> documentInfoRequests) {
+        List<DocumentInfo> documentInfos = documentInfoRequests.stream().map(documentInfoRequest -> new DocumentInfo(documentInfoRequest.getId(), documentInfoRequest.getDocName(), documentInfoRequest.getDocType(), documentInfoRequest.getDocStatus())).toList();
+        documentInfos = (List<DocumentInfo>) documentInfoRepository.saveAll(documentInfos);
+        return documentInfos.stream().map(documentInfo -> new DocumentInfoRecord(documentInfo.getId(), documentInfo.getDocName(), documentInfo.getDocType(), documentInfo.getDocStatus())).toList();
     }
 
 }
