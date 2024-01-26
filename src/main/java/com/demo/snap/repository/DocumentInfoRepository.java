@@ -6,7 +6,7 @@ package com.demo.snap.repository;
  * @Time: 1:43 am
  */
 
-import com.demo.snap.entity.DocumentInfo;
+import com.demo.snap.model.entity.DocumentInfo;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

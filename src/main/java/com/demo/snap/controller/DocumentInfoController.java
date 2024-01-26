@@ -6,14 +6,13 @@ package com.demo.snap.controller;
  * @Time: 1:43 am
  */
 
-import com.demo.snap.record.DocumentInfoRecord;
-import com.demo.snap.unit.service.DocumentInfoService;
+import com.demo.snap.service.DocumentInfoService;
+import com.demo.snap.model.record.DocumentInfoRecord;
+import com.demo.snap.model.request.DocumentInfoRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -46,10 +45,10 @@ public class DocumentInfoController {
         return documentInfoService.getDocumentInfosByDocStatus(docStatus);
     }
 
-    @GetMapping("/fetchDocInfosByDocName")
-    @Operation(summary = "To fetch all of the document information by its name")
-    public List<DocumentInfoRecord> fetchDocInfosByDocName(@RequestParam String docName){
-        return documentInfoService.getDocumentInfosByDocName(docName);
+    @PostMapping("/saveDocInfos")
+    @Operation(summary = "To save documents")
+    public List<DocumentInfoRecord> saveDocInfos(@NotNull @RequestBody List<DocumentInfoRequest> documentInfoRequests){
+        return documentInfoService.saveDocumentInfos(documentInfoRequests);
     }
 
 

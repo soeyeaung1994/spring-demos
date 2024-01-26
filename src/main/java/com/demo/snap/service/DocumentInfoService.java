@@ -1,4 +1,4 @@
-package com.demo.snap.unit.service;
+package com.demo.snap.service;
 
 /**
  * @Author: Soe Ye Aung
@@ -6,15 +6,17 @@ package com.demo.snap.unit.service;
  * @Time: 1:43 am
  */
 
-import com.demo.snap.record.DocumentInfoRecord;
+import com.demo.snap.model.record.DocumentInfoRecord;
+import com.demo.snap.model.request.DocumentInfoRequest;
+
 import java.util.List;
 
 public interface DocumentInfoService {
 
     List<DocumentInfoRecord> getDocumentInfoList();
     List<DocumentInfoRecord> getDocumentInfosByDocName(String docName);
-    List<DocumentInfoRecord> getDocumentInfosByDocType(String docType);
     List<DocumentInfoRecord> getDocumentInfosByDocStatus(String docStatus);
     DocumentInfoRecord getDocumentInfoById(Long id);
+    List<DocumentInfoRecord> saveDocumentInfos(List<DocumentInfoRequest> documentInfoRequests);
 
 }
