@@ -1,4 +1,4 @@
-package com.demo.snap.service.impl;
+package com.demo.snap.unit.service.impl;
 
 /**
  * @Author: Soe Ye Aung
@@ -9,7 +9,7 @@ package com.demo.snap.service.impl;
 import com.demo.snap.entity.DocumentInfo;
 import com.demo.snap.record.DocumentInfoRecord;
 import com.demo.snap.repository.DocumentInfoRepository;
-import com.demo.snap.service.DocumentInfoService;
+import com.demo.snap.unit.service.DocumentInfoService;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,4 +1,4 @@
-package com.demo.snap.service;
+package com.demo.snap.unit.service;
 
 /**
  * @Author: Soe Ye Aung

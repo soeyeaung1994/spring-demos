@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
@@ -49,5 +50,22 @@ public class DocumentInfoControllerIT {
                 .andExpect(jsonPath("$.[1].docType").value("Tax Declaration Document"));
 
     }
+
+    @Test
+    @Sql({"/data.sql"})
+    public void testFetchDocInfosById() throws Exception {
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/docInfo/fetchDocInfoById")
+                        .param("id", "5"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType("application/json"))
+                .andExpect(jsonPath("$.docName").value("Social Security Test"))
+                .andExpect(jsonPath("$.docType").value("Insurance Document"))
+                .andExpect(jsonPath("$.docStatus").value("CANCELLED"));
+
+    }
+
+
 
 }

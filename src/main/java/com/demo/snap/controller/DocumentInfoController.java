@@ -7,7 +7,7 @@ package com.demo.snap.controller;
  */
 
 import com.demo.snap.record.DocumentInfoRecord;
-import com.demo.snap.service.DocumentInfoService;
+import com.demo.snap.unit.service.DocumentInfoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.GetMapping;
