@@ -1,4 +1,4 @@
-package com.demo.snap.entity;
+package com.demo.snap.model.entity;
 
 /**
  * @Author: Soe Ye Aung
@@ -23,6 +23,13 @@ public class DocumentInfo {
 
     @Column(nullable = false)
     private String docStatus;
+
+    public DocumentInfo(Long id, String docName, String docType, String docStatus) {
+        this.id = id;
+        this.docName = docName;
+        this.docType = docType;
+        this.docStatus = docStatus;
+    }
 
     public Long getId() {
         return id;

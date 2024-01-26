@@ -1,4 +1,4 @@
-package com.demo.snap.record;
+package com.demo.snap.model.record;
 
 /**
  * @Author: Soe Ye Aung
